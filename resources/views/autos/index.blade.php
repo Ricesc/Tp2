@@ -80,32 +80,38 @@
                                         <form action="{{ route('ModificarAuto', $auto->id) }}" method="POST">
                                             @csrf
                                             <!-- Campos del formulario -->
-                                            <div class="mb-3">
-                                                <label for="marca" class="form-label">Marca</label>
-                                                <input type="text" name="marca" class="form-control" value="{{ $auto->marca }}" required>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="marca-{{ $auto->id }}" class="form-label">Marca:</label>
+                                                    <input type="text" name="marca" id="marca-{{ $auto->id }}" class="form-control" value="{{ $auto->marca }}" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="modelo-{{ $auto->id }}" class="form-label">Modelo:</label>
+                                                    <input type="text" name="modelo" id="modelo-{{ $auto->id }}" class="form-control" value="{{ $auto->modelo }}" required>
+                                                </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="modelo" class="form-label">Modelo</label>
-                                                <input type="text" name="modelo" class="form-control" value="{{ $auto->modelo }}" required>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="anio-{{ $auto->id }}" class="form-label">Año:</label>
+                                                    <input type="text" name="anio" id="anio-{{ $auto->id }}" class="form-control" value="{{ $auto->anio }}" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="color-{{ $auto->id }}" class="form-label">Color:</label>
+                                                    <input type="text" name="color" id="color-{{ $auto->id }}" class="form-control" value="{{ $auto->color }}" required>
+                                                </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="anio" class="form-label">Año</label>
-                                                <input type="text" name="anio" class="form-control" value="{{ $auto->anio }}" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="color" class="form-label">Color</label>
-                                                <input type="text" name="color" class="form-control" value="{{ $auto->color }}" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="precio" class="form-label">Precio</label>
-                                                <input type="number" name="precio" class="form-control" value="{{ $auto->precio }}" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="activo" class="form-label">Estado</label>
-                                                <select name="activo" class="form-select" required>
-                                                    <option value="1" {{ $auto->activo ? 'selected' : '' }}>Activo</option>
-                                                    <option value="0" {{ !$auto->activo ? 'selected' : '' }}>Inactivo</option>
-                                                </select>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <label for="precio-{{ $auto->id }}" class="form-label">Precio:</label>
+                                                    <input type="number" name="precio" id="precio-{{ $auto->id }}" class="form-control" value="{{ $auto->precio }}" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="activo-{{ $auto->id }}" class="form-label">Estado:</label>
+                                                    <select name="activo" id="activo-{{ $auto->id }}" class="form-select" required>
+                                                        <option value="1" {{ $auto->activo ? 'selected' : '' }}>Activo</option>
+                                                        <option value="0" {{ !$auto->activo ? 'selected' : '' }}>Inactivo</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
